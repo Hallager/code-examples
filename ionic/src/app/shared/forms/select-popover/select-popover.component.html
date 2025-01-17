@@ -1,0 +1,13 @@
+<ion-toolbar>
+  <ion-searchbar
+    animated="true"
+    [(ngModel)]="searchTerm"
+    (ionInput)="onSearchTermChange()"
+  ></ion-searchbar>
+</ion-toolbar>
+
+<ion-list>
+  <ion-item class="ion-border" *ngFor="let item of filteredItems" (click)="selectItem(item)" tappable>
+    <ion-label>{{ item }}</ion-label>
+  </ion-item>
+</ion-list>

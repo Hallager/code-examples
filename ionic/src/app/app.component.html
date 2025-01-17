@@ -1,0 +1,46 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu menuId="first-menu" contentId="main-content" disabled="true">
+      <ion-header>
+        <div class="container mx-3">
+          <div class="row">
+            <div class="col-2">
+              <app-icon name="bedroom_baby"></app-icon>
+            </div>
+            <div class="col">
+              <ion-title>coco</ion-title>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <app-sb-image
+                [id]="userProfile?.id"
+                [account_id]="role?.account_id"
+                [institution_id]="role?.institution_id"
+                [type]='"profile"'
+                shape="smooth"
+              ></app-sb-image>
+            </div>
+            <div class="col">
+              {{ userProfile?.meta_name_full }}
+              <br>
+              {{ userProfile?.email }}
+            </div>
+            <div class="col-2">
+              <app-icon name="notifications"></app-icon>
+            </div>
+          </div>
+        </div>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <app-menu-items-for-sidebar></app-menu-items-for-sidebar>
+      </ion-content>
+    </ion-menu>
+    <ion-content>
+      <ion-header [translucent]="true">
+        <app-header></app-header>
+      </ion-header>
+      <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-content>
+  </ion-split-pane>
+</ion-app>

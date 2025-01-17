@@ -1,0 +1,18 @@
+
+<ion-button 
+[fill]="rla.isActive ?'solid' :'outline'" [routerLink]="link" #rla="routerLinkActive"
+  routerLinkActive="active" [class.active]="rla.isActive">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2" class="d-flex justify-content-start aline-items-center">
+        <div class="horizontal-line">|</div>
+        <app-icon [name]="icon"></app-icon>
+      </ion-col>
+      <ion-col class="d-flex  aline-items-center">
+        {{text}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-button>
+<ion-badge color="danger" *ngIf="badge" class="ion-float-end" >{{badge}}</ion-badge>

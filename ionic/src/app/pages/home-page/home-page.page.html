@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1>
+        {{selectedArea?.institution_name}}
+      </h1>
+      <p>{{ 'home-page.institution_discription' | translate }}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <ion-select
+        fill="outline"
+        [(ngModel)]="dropdownSelectedItem"
+        interface="popover"
+        (ionChange)="selectDropdownItem($event)"
+        placeholder="Vælg stue..."
+      >
+        <ion-select-option
+          *ngFor="let item of dropdownDashboardForUser"
+          [value]="item"
+        >{{item.display}} {{item.is_institution?'': '(stue)'}}
+        </ion-select-option>
+      </ion-select>
+    </div>
+  </div>
+</div>
+
+<app-footer-menu></app-footer-menu>

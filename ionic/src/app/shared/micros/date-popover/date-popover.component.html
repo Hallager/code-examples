@@ -1,0 +1,21 @@
+<label class="input-wrapper w-100p" (click)="isOpen = true">
+  <div class="label-text-wrapper">
+    <div class="label-text">{{ label }}</div>
+  </div>
+  <div class="native-wrapper">
+    <div class="native-input">{{ model | date: dataFormat }}</div>
+  </div>
+</label>
+
+<ion-popover [dismissOnSelect]="false" [isOpen]="isOpen" (didDismiss)="isOpen = false">
+  <ng-template>
+    <ion-datetime
+      [presentation]="type"
+      [(ngModel)]="model"
+      (ngModelChange)="onChangeModel()"
+    ></ion-datetime>
+    <ion-button slot="end" (click)="isOpen = false">
+      <app-icon name="check_circle"></app-icon>
+    </ion-button>
+  </ng-template>
+</ion-popover>
